@@ -1,8 +1,7 @@
 # calculator.py
 import sys
-from PyQt5.QtWidgets import (QApplication, QMainWindow, QWidget, QVBoxLayout, 
+from PyQt5.QtWidgets import (QApplication, QMainWindow, QWidget, QVBoxLayout,
                              QHBoxLayout, QTextEdit, QPushButton)
-from PyQt5.QtCore import Qt
 
 # 메인 윈도우 클래스 정의, QMainWindow를 상속받음
 class CalculatorApp(QMainWindow):
@@ -18,7 +17,7 @@ class CalculatorApp(QMainWindow):
         # 중앙 위젯 및 전체 레이아웃 설정
         central_widget = QWidget()
         self.setCentralWidget(central_widget)
-        
+
         # 3. 레이아웃: 전체적인 구조는 수직 레이아웃(QVBoxLayout) 사용
         vbox = QVBoxLayout()
         central_widget.setLayout(vbox)
@@ -27,7 +26,7 @@ class CalculatorApp(QMainWindow):
         # 디스플레이 화면 (QTextEdit) 생성
         self.display = QTextEdit()
         self.display.setReadOnly(True)  # 읽기 전용으로 설정하여 사용자 입력 방지
-        self.display.setStyleSheet("font-size: 20px;") # 폰트 크기 설정
+        self.display.setStyleSheet("font-size: 20px;")  # 폰트 크기 설정
 
         # 버튼 그룹을 담을 위젯과 수평 레이아웃(QHBoxLayout) 생성
         button_widget = QWidget()
@@ -36,7 +35,7 @@ class CalculatorApp(QMainWindow):
 
         # '메시지' 버튼 생성
         self.message_button = QPushButton('메시지')
-        
+
         # 'clear' 버튼 생성
         self.clear_button = QPushButton('clear')
 
@@ -51,7 +50,7 @@ class CalculatorApp(QMainWindow):
         # 4. 기능 및 동작 연결
         # '메시지' 버튼 클릭 시 on_message_button_clicked 함수 호출
         self.message_button.clicked.connect(self.on_message_button_clicked)
-        
+
         # 'clear' 버튼 클릭 시 on_clear_button_clicked 함수 호출
         self.clear_button.clicked.connect(self.on_clear_button_clicked)
 
@@ -69,12 +68,12 @@ class CalculatorApp(QMainWindow):
 if __name__ == '__main__':
     # QApplication 인스턴스 생성
     app = QApplication(sys.argv)
-    
+
     # CalculatorApp 인스턴스 생성
     ex = CalculatorApp()
-    
+
     # 창을 화면에 보여줌
     ex.show()
-    
+
     # 애플리케이션 이벤트 루프 실행
     sys.exit(app.exec_())
